@@ -1,0 +1,12 @@
+{
+  "name": "agri2-irrigation-advisor",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AGRI-2 Irrigation Scheduling Advisor - Full-stack Next.js and FastAPI Vercel Deployment",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "build:frontend": "npm --prefix frontend run build",
+    "start:frontend": "npm --prefix frontend run start"
+  }
+}

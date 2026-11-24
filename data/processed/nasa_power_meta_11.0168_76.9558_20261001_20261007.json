@@ -1,0 +1,49 @@
+{
+  "source": "NASA Prediction Of Worldwide Energy Resources (POWER) Daily API",
+  "source_url": "https://power.larc.nasa.gov/docs/services/api/temporal/daily/",
+  "download_date_utc": "2026-11-23T08:21:44.994705+00:00",
+  "coordinates": {
+    "latitude": 11.0168,
+    "longitude": 76.9558
+  },
+  "date_range": {
+    "start_date": "2026-10-01",
+    "end_date": "2026-10-07"
+  },
+  "parameters": {
+    "T2M_MAX": {
+      "name": "Maximum Temperature at 2m",
+      "units": "\u00b0C"
+    },
+    "T2M_MIN": {
+      "name": "Minimum Temperature at 2m",
+      "units": "\u00b0C"
+    },
+    "T2M": {
+      "name": "Mean Temperature at 2m",
+      "units": "\u00b0C"
+    },
+    "RH2M": {
+      "name": "Relative Humidity at 2m",
+      "units": "%"
+    },
+    "WS2M": {
+      "name": "Wind Speed at 2m",
+      "units": "m/s"
+    },
+    "ALLSKY_SFC_SW_DWN": {
+      "name": "All-Sky Solar Radiation",
+      "units": "MJ/m^2/day"
+    },
+    "PRECTOTCORR": {
+      "name": "Precipitation Corrected",
+      "units": "mm/day"
+    },
+    "PS": {
+      "name": "Surface Atmospheric Pressure",
+      "units": "kPa"
+    }
+  },
+  "data_category": "Historical Observation / Satellite Reanalysis",
+  "disclaimer": "Historical observations. Strictly NOT a future live weather forecast."
+}

@@ -1,0 +1,2 @@
+# AGRI-2 Local Development & Testing Dependencies
+-r requirements-streamlit.txt

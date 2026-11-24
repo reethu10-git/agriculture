@@ -1,0 +1,9 @@
+# AGRI-2 Local Streamlit Desktop Application & Development Dependencies
+# Extends root requirements.txt with desktop visualization frameworks
+-r requirements.txt
+streamlit>=1.30.0
+plotly>=5.18.0
+scipy>=1.10.0
+matplotlib>=3.7.0
+pyarrow>=14.0.0,<=18.1.0
+pytest>=7.4.0

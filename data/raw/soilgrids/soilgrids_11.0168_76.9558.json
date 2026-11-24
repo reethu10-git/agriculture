@@ -1,0 +1,23 @@
+{
+  "success": false,
+  "error_detail": "SoilGrids API request timed out or was unreachable: HTTPSConnectionPool(host='rest.isric.org', port=443): Read timed out. (read timeout=6.0)",
+  "provenance_status": "MODELLED_SOIL_ESTIMATE_REGIONAL_PROFILE",
+  "provenance_badge": "ISRIC SoilGrids Regional Profile (Pre-cached)",
+  "retrieval_timestamp": "2026-11-23T08:20:38.633660+00:00",
+  "coordinates": {
+    "latitude": 11.0168,
+    "longitude": 76.9558
+  },
+  "properties": {
+    "clay_percent": 28.5,
+    "sand_percent": 44.8,
+    "silt_percent": 26.7,
+    "organic_carbon_g_kg": 8.6,
+    "bulk_density_g_cm3": 1.42,
+    "soil_ph": 7.3,
+    "usda_texture_class": "Sandy Clay Loam / Loam",
+    "provenance_note": "ISRIC SoilGrids 250m Modelled Regional Profile (Coimbatore plains, depth 0-30cm)"
+  },
+  "disclaimer": "Modelled regional soil profile for Western Tamil Nadu. NOT an actual field moisture reading.",
+  "source_url": "https://rest.isric.org/"
+}

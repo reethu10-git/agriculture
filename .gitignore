@@ -1,0 +1,37 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Environment files (CRITICAL SECURITY: never commit .env)
+.env
+.env.local
+.env.*.local
+*.env
+
+# Node.js and Next.js artifacts
+node_modules/
+frontend/node_modules/
+frontend/.next/
+.vercel/
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# User outputs & approved decision logs (ephemeral local runs)
+outputs/
+*.log

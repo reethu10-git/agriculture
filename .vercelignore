@@ -1,0 +1,18 @@
+# Development and test files
+tests/
+docs/
+.pytest_cache/
+*.pyc
+__pycache__/
+
+# Streamlit desktop application and outputs
+app.py
+outputs/
+
+# Raw datasets not used in production calculations
+data/raw/
+.git/
+.github/
+
+# Frontend build cache
+frontend/.next/cache/

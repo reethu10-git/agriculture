@@ -1,0 +1,73 @@
+{
+  "source_institution": "Tamil Nadu Agricultural University (TNAU)",
+  "source_portal": "TNAU Agritech Portal - Crop Production - Rice Water Management",
+  "source_url": "https://agritech.tnau.ac.in/agriculture/agri_irrigationmgt_rice.html",
+  "retrieval_date": "2026-11-23",
+  "crop": "Rice (Oryza sativa)",
+  "regional_focus": "Western Agroclimatic Zone of Tamil Nadu (Coimbatore, Tiruppur, Erode)",
+  "water_management_practices": {
+    "alternate_wetting_and_drying_awd": {
+      "name": "Alternate Wetting and Drying (AWD) / Safe AWD (Pani Pipe)",
+      "description": "Recommended by TNAU to save 20-30% of irrigation water without yield penalty. A 15-20 cm perforated plastic tube (pani pipe) is inserted in the field to monitor the water table.",
+      "implementation_guidelines": {
+        "nursery": "Maintain thin film of water (1-2 cm) during germination and nursery stage.",
+        "tillering_to_panicle_initiation": "Irrigate to 5 cm depth after ponded water naturally drops to ground level (0 cm on surface, or 15 cm below surface in safe AWD tube).",
+        "flowering_reproductive_stage": "CRITICAL STAGE! Strictly do not practice AWD. Maintain continuous 5 cm (50 mm) standing water from panicle initiation to 10 days after flowering to avoid spikelet sterility.",
+        "grain_filling_to_maturity": "Intermittent shallow irrigation (2.5-3.0 cm). Completely drain water 10-15 days prior to harvest to facilitate uniform ripening."
+      }
+    },
+    "soil_specific_irrigation_intervals": {
+      "Clay": {
+        "recommended_interval_days": "4 to 6 days",
+        "percolation_loss_typical_mm_day": "1.0 - 1.5",
+        "characteristics": "High clay content creates an impermeable puddled plow pan; water is retained longer."
+      },
+      "Clay Loam": {
+        "recommended_interval_days": "3 to 5 days",
+        "percolation_loss_typical_mm_day": "1.5 - 2.0",
+        "characteristics": "Favorable water retention; suitable for controlled AWD cycles."
+      },
+      "Loamy": {
+        "recommended_interval_days": "3 to 4 days",
+        "percolation_loss_typical_mm_day": "2.0 - 3.0",
+        "characteristics": "Medium texture; standard recommendation in Coimbatore plains."
+      },
+      "Sandy Loam": {
+        "recommended_interval_days": "2 to 3 days",
+        "percolation_loss_typical_mm_day": "4.0 - 6.0",
+        "characteristics": "Rapid percolation; requires frequent light irrigations; bund sealing essential."
+      },
+      "Sandy": {
+        "recommended_interval_days": "1 to 2 days",
+        "percolation_loss_typical_mm_day": "6.0 - 10.0",
+        "characteristics": "High percolation losses; generally discouraged for wetland paddy unless heavily amended."
+      }
+    },
+    "critical_stages_ranked_by_water_stress_sensitivity": [
+      {
+        "stage": "Panicle Initiation to Flowering (Mid-Season)",
+        "sensitivity": "EXTREME",
+        "impact_of_stress": "Spikelet sterility, poor heading, severe yield drop up to 50%",
+        "mandatory_management": "Continuous submergence (30-50 mm)"
+      },
+      {
+        "stage": "Active Tillering (Development)",
+        "sensitivity": "HIGH",
+        "impact_of_stress": "Reduced tiller count, stunted canopy",
+        "mandatory_management": "Shallow water (20-30 mm) or Safe AWD"
+      },
+      {
+        "stage": "Nursery & Transplanting (Initial)",
+        "sensitivity": "MEDIUM",
+        "impact_of_stress": "Seedling desiccation, delayed rooting",
+        "mandatory_management": "Saturated soil to shallow thin film (10-20 mm)"
+      },
+      {
+        "stage": "Ripening & Senescence (Late-Season)",
+        "sensitivity": "LOW",
+        "impact_of_stress": "Minimal; drying required before harvest",
+        "mandatory_management": "Terminal drainage 10-15 days before harvest"
+      }
+    ]
+  }
+}
