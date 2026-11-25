@@ -4,9 +4,14 @@
   "private": true,
   "description": "AGRI-2 Irrigation Scheduling Advisor - Full-stack Next.js and FastAPI Vercel Deployment",
   "scripts": {
-    "build": "cd frontend && npm install && npm run build",
+    "build": "npm --prefix frontend install && npm --prefix frontend run build",
     "dev:frontend": "npm --prefix frontend run dev",
     "build:frontend": "npm --prefix frontend run build",
     "start:frontend": "npm --prefix frontend run start"
+  },
+  "dependencies": {
+    "next": "^15.1.7",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   }
 }
