@@ -9,19 +9,28 @@ from typing import Dict, Any, Tuple, Optional
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 import json
+import logging
 import requests
 import pandas as pd
 import numpy as np
 
-from config.settings import DEFAULT_LOCATION, DATA_DIR
+from config.settings import DEFAULT_LOCATION, DATA_DIR, IS_VERCEL
 from src.data_loader import load_and_validate_weather_csv
 
+logger = logging.getLogger("agri2.nasa_power")
 
-NASA_POWER_RAW_DIR = DATA_DIR / "raw" / "nasa_power"
-PROCESSED_DATA_DIR = DATA_DIR / "processed"
+if IS_VERCEL:
+    NASA_POWER_RAW_DIR = Path("/tmp/nasa_power")
+    PROCESSED_DATA_DIR = Path("/tmp/processed")
+else:
+    NASA_POWER_RAW_DIR = DATA_DIR / "raw" / "nasa_power"
+    PROCESSED_DATA_DIR = DATA_DIR / "processed"
 
-NASA_POWER_RAW_DIR.mkdir(parents=True, exist_ok=True)
-PROCESSED_DATA_DIR.mkdir(parents=True, exist_ok=True)
+for _dir in (NASA_POWER_RAW_DIR, PROCESSED_DATA_DIR):
+    try:
+        _dir.mkdir(parents=True, exist_ok=True)
+    except OSError as exc:
+        logger.warning("Unable to create NASA POWER directory %s: %s", _dir, exc)
 
 
 def parse_nasa_power_response(raw_json: Dict[str, Any]) -> pd.DataFrame:

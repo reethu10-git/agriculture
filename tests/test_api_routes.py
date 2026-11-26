@@ -309,7 +309,7 @@ def test_advisory_endpoint_invalid_language_rejected(client):
     assert "Unsupported language 'French'" in response_fr.json()["detail"]
 
 # 6. Approval Endpoint Tests
-def test_approval_endpoint_valid(client):
+def test_approval_endpoint_valid(client, tmp_path):
     payload = {
         "schedule_id": "sch_test_12345",
         "decision": "APPROVED",
@@ -320,7 +320,11 @@ def test_approval_endpoint_valid(client):
         "crop": "Rice",
         "field_area_acres": 1.0
     }
-    response = client.post("/api/approval", json=payload)
+    with patch("src.db_client.is_supabase_configured", return_value=False), \
+         patch("src.approval_logger.is_supabase_configured", return_value=False), \
+         patch("src.db_client.LOCAL_SCHEDULES_FILE", tmp_path / "schedules_store.json"), \
+         patch("src.approval_logger.APPROVAL_FILE", tmp_path / "approved_schedules.json"):
+        response = client.post("/api/approval", json=payload)
     assert response.status_code == 200
     data = response.json()
     assert data["success"] is True

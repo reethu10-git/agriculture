@@ -13,17 +13,26 @@ Farmer-selected soil type and field measurements remain the primary calculation 
 from typing import Dict, Any, Optional
 from pathlib import Path
 import json
+import logging
 import time
 from datetime import datetime, timezone
 import requests
-from config.settings import DEFAULT_LOCATION, DATA_DIR
+from config.settings import DEFAULT_LOCATION, DATA_DIR, IS_VERCEL
 
+logger = logging.getLogger("agri2.soil_service")
 
-SOILGRIDS_RAW_DIR = DATA_DIR / "raw" / "soilgrids"
-SOILGRIDS_PROCESSED_FILE = DATA_DIR / "processed" / "soilgrids_coimbatore.json"
+if IS_VERCEL:
+    SOILGRIDS_RAW_DIR = Path("/tmp/soilgrids")
+    SOILGRIDS_PROCESSED_FILE = Path("/tmp/processed/soilgrids_coimbatore.json")
+else:
+    SOILGRIDS_RAW_DIR = DATA_DIR / "raw" / "soilgrids"
+    SOILGRIDS_PROCESSED_FILE = DATA_DIR / "processed" / "soilgrids_coimbatore.json"
 
-SOILGRIDS_RAW_DIR.mkdir(parents=True, exist_ok=True)
-SOILGRIDS_PROCESSED_FILE.parent.mkdir(parents=True, exist_ok=True)
+for _dir in (SOILGRIDS_RAW_DIR, SOILGRIDS_PROCESSED_FILE.parent):
+    try:
+        _dir.mkdir(parents=True, exist_ok=True)
+    except OSError as exc:
+        logger.warning("Unable to create SoilGrids directory %s: %s", _dir, exc)
 
 # Standard regional SoilGrids 250m reference profile for Coimbatore Agricultural Plains (11.0168°N, 76.9558°E)
 COIMBATORE_REGIONAL_PROFILE = {

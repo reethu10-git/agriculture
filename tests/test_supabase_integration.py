@@ -69,9 +69,12 @@ def test_production_persistence_enforcement_missing_supabase(client):
         assert res_dec["storage_status"] == "CONFIGURATION_ERROR"
 
 
-def test_local_offline_fallback(client):
+def test_local_offline_fallback(client, tmp_path):
     """Verify that schedule calculation and approval fall back to local storage when offline."""
-    with patch("src.db_client.is_supabase_configured", return_value=False):
+    with patch("src.db_client.is_supabase_configured", return_value=False), \
+         patch("src.approval_logger.is_supabase_configured", return_value=False), \
+         patch("src.db_client.LOCAL_SCHEDULES_FILE", tmp_path / "schedules_store.json"), \
+         patch("src.approval_logger.APPROVAL_FILE", tmp_path / "approved_schedules.json"):
         # 1. Generate schedule
         sched_resp = client.post("/api/irrigation/schedule", json={
             "crop": "Rice",

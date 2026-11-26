@@ -4,9 +4,12 @@ Centralized management of physical constants, crop databases, soil parameters,
 default project inputs, and Nexus API environment settings.
 """
 
+import logging
 import os
 from pathlib import Path
 from dotenv import load_dotenv
+
+logger = logging.getLogger("agri2.settings")
 
 # Base paths
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,8 +27,8 @@ else:
 # Ensure output directory exists (safe for read-only root in serverless)
 try:
     OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
-except Exception:
-    pass
+except OSError as exc:
+    logger.warning("Unable to create outputs directory %s: %s", OUTPUTS_DIR, exc)
 
 # Load environment variables
 load_dotenv(BASE_DIR / ".env")
@@ -84,6 +87,41 @@ SOIL_DATABASE = {
         "saturation": 0.38,
         "percolation_rate": 7.0,
         "description": "Very coarse texture, low moisture retention, requires frequent light irrigation."
+    },
+    "Silt Loam": {
+        "field_capacity": 0.30,
+        "wilting_point": 0.15,
+        "saturation": 0.46,
+        "percolation_rate": 2.2,
+        "description": "Smooth silty texture with high available water capacity and moderate drainage."
+    },
+    "Silty Clay": {
+        "field_capacity": 0.39,
+        "wilting_point": 0.23,
+        "saturation": 0.51,
+        "percolation_rate": 1.4,
+        "description": "Fine-textured soil with high moisture retention and slow internal drainage."
+    },
+    "Silty Clay Loam": {
+        "field_capacity": 0.35,
+        "wilting_point": 0.20,
+        "saturation": 0.49,
+        "percolation_rate": 1.6,
+        "description": "Well-structured medium-fine soil with strong water-holding capacity."
+    },
+    "Sandy Clay Loam": {
+        "field_capacity": 0.26,
+        "wilting_point": 0.14,
+        "saturation": 0.43,
+        "percolation_rate": 3.2,
+        "description": "Balanced sand-clay mix with moderate water retention and good aeration."
+    },
+    "Loamy Sand": {
+        "field_capacity": 0.15,
+        "wilting_point": 0.06,
+        "saturation": 0.39,
+        "percolation_rate": 5.8,
+        "description": "Coarse-textured soil with fast infiltration and low moisture storage."
     }
 }
 
